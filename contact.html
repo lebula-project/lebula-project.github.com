@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no">
+	<link rel="shortcut icon" href="./images/favicon.png">
+	<link rel="icon" href="./images/favicon.png" type="image/png">
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<title>Lebula - Contact</title>
+</head>
+<body>
+<div id="top">
+	<div class="container">
+		<div id="contact">
+			Email: team@linition.com &middot; 
+			Skype: lebula.com</div>
+		<div id="lang">
+			<a href="#">中文 <img src="./images/zh-CN.png" /></a>
+		</div>
+	</div>
+</div>
+<div id="header">
+	<div class="container">
+		<div id="logo"><a href="./"><img src="./images/lebula.png" /></a>&nbsp;</div>
+		<h1>Lebula</h1>
+		<ul>
+			<a href="./"><li>Home</li></a>
+			<a href="./drive"><li>Lebula Drive</li></a>
+			<a href="./solutions"><li>Solutions</li></a>
+			<li>Contact</li>
+		</ul>
+	</div>
+</div>
+<div id="caption">
+	<div class="container">
+		<h2>Contact</h2>
+		<p><a href="./">Home</a> / Contact</p>
+	</div>
+</div>
+
+<div id="main">
+	<div class="container">
+		<div id="message">
+		<?php
+		//if "email" variable is filled out, send email
+	  	if (isset($_REQUEST['your-email']))  
+		{
+			//Email information
+			$admin_email = "team@lebula.com";
+			$email = $_REQUEST['your-email'];
+			$subject = $_REQUEST['your-subject'];
+			$message = $_REQUEST['your-message'];
+			
+			echo $email + $subject + $message
+
+			//send email
+			mail($admin_email, "$subject", $message, "From:" . $email);
+
+			//Email response
+			echo "Thank you for contacting us!";
+		}
+		//if "email" variable is not filled out, display the form
+		else  {
+		?>
+			
+			<h3><a href="#">Send Your Message</a></h3>
+			<form method="post">
+			<p>Your Name (required)<br />
+			<input class="single-line" type="text" name="your-name" value="" size="40" /></p>
+			<p>Your Email (required)<br />
+			<input class="single-line" type="email" name="your-email" value="" size="40" /></p>
+			<p>Subject<br />
+			<input class="single-line" type="text" name="your-subject" value="" size="40"/></p>
+			<p>Your Message<br />
+			<textarea class="multi-line" name="your-message" cols="40" rows="20"></textarea></p>
+			<p><input class="button" type="submit" value="Send" /></p>
+
+		<?php
+		}
+		?>
+		</div>
+		<div id="contact">
+			<h3><a href="#">Our Contacts</a></h3>
+			<p><span class="sub">China:</span> <br />
+				No.1 Yard, Taiyanggong Er Street <br />
+				Suite 6-2-1803 <br />
+				Chaoyang District, Beijing 100028</p>
+			<p><span class="sub">USA:</span> <br />
+				5000 Hillsboro Pike <br />
+				Suite D5 <br />
+				Nashville, TN 37215-3749</p>
+			<p><span class="sub">Skype:</span> lebula.com <br />
+				<span class="sub">Email:</span> team@linition.com <br />
+				<span class="sub">Phone:</span> +1 (615) 933-6115</p>
+			<img src="./images/contactus.png">
+		</div> 
+	</div>
+</div>
+<div id="footer">
+	<div class="container">
+		<p>Copyright 2011-2016 Lebula. All rights reserved.</p>
+	</div>
+</div>
+</body>
+</html>
+
